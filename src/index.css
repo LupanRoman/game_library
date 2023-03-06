@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Poppins';
+}
+
+.landing-nav {
+    box-shadow: 0px 10px 20px #DFE0DF;
+}
+
+@media screen and (min-width: 2000px) {
+    .root-component {
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+}
