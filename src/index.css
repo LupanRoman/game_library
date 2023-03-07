@@ -18,3 +18,26 @@
         padding-right: 300px;
     }
 }
+
+/* !! Styling for the menu behavior */
+
+.menu-container {
+    left: -100%;
+    transition: 200ms;
+}
+
+.menu-container.active {
+    left: 0;
+    padding-left: 20px;
+    transition: 400ms;
+}
+
+.menu-component {
+    background-color: aquamarine;
+    width: 50vw;
+    height: 95vh;
+    position: absolute;
+}
+
+
+/* !! Styling for the menu behavior */

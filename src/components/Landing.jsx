@@ -1,6 +1,11 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  browserSessionPersistence,
+  setPersistence,
+} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../auth/firebase';
 
@@ -13,7 +18,9 @@ const Landing = () => {
   const signUp = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      navigate('/home');
+      if (result) {
+        navigate('/home');
+      }
     } catch (error) {
       console.log(error);
     }
