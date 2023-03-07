@@ -1,20 +1,19 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { redirect } from 'react-router-dom';
-import app from '../../auth/firebase';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../auth/firebase';
 
 const Landing = () => {
-    
   // ** Getting the data for the google auth
   const provider = new GoogleAuthProvider();
+  // ** useNavigate is used for navigating to /home after the user is signed up
+  const navigate = useNavigate();
 
-  const auth = getAuth(app);
   const signUp = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log(result);
-      redirect('/home');
+      navigate('/home');
     } catch (error) {
       console.log(error);
     }
