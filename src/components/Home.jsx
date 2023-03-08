@@ -42,9 +42,9 @@ const Home = () => {
           <div className="flex gap-5 items-center text-xl">
             <HiOutlineMenuAlt1
               onClick={openMenu}
-              className="cursor-pointer hover:text-cta"
+              className="cursor-pointer hover:text-cta md:hidden"
             />
-            <h1 className="font-black">Gamify</h1>
+            <h1 className="font-black md:text-3xl">Gamify</h1>
           </div>
           <div className="flex items-center gap-5">
             <HiMoon
@@ -65,8 +65,13 @@ const Home = () => {
             ) : null}
           </div>
         </div>
-        <div id="menu-container" className="menu-container absolute top-5">
+        <div className="flex-layout">
+        <div id="menu-container" className="menu-container absolute top-5 md:static">
           <Menu closeMenu={closeMenu} />
+        </div>
+        <div className="grid-layout">
+
+        </div>
         </div>
       </div>
     </>
