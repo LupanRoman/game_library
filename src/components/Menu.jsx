@@ -15,13 +15,13 @@ const Menu = ({ closeMenu }) => {
         </div>
         <div className="links flex flex-col gap-8 font-medium">
           <div className="main-links w-full flex flex-col self-start items-start gap-3 pr-2">
-            <button className='text-start'>Home</button>
+            <button className="text-start">Home</button>
             <button className="flex items-center gap-2">
               Most loved <BsFire className="text-cta" />
             </button>
           </div>
-          <div className=''>
-            <ul className='genres-filter flex flex-col gap-3 pr-2'>
+          <div className="">
+            <ul className="genres-filter flex flex-col gap-3 pr-2">
               <li>Action</li>
               <li>Adventure</li>
               <li>Arcade</li>

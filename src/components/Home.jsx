@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import app from '../../auth/firebase';
 import { HiOutlineMenuAlt1, HiMoon, HiSun } from 'react-icons/hi';
 import Menu from './Menu';
+import TopBanner from './TopBanner';
+import MostPlayed from './MostPlayed';
 
 const Home = () => {
   const [user, loading] = useAuthState(app);
@@ -37,7 +39,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="home-component px-5 relative">
+      <div className="home-component px-5 lg:px-20 relative">
         <div className="nav-bar h-nav flex justify-between items-center">
           <div className="flex gap-5 items-center text-xl">
             <HiOutlineMenuAlt1
@@ -65,13 +67,17 @@ const Home = () => {
             ) : null}
           </div>
         </div>
-        <div className="flex-layout">
-        <div id="menu-container" className="menu-container absolute top-5 md:static">
-          <Menu closeMenu={closeMenu} />
-        </div>
-        <div className="grid-layout">
-
-        </div>
+        <div className="flex-layout flex gap-10 md:pr-10">
+          <div
+            id="menu-container"
+            className="menu-container absolute top-5 md:static"
+          >
+            <Menu closeMenu={closeMenu} />
+          </div>
+          <div className="grid-layout">
+            <TopBanner />
+            <MostPlayed />
+          </div>
         </div>
       </div>
     </>
