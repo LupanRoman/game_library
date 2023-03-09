@@ -1,6 +1,6 @@
 const mostPlayed = [
   {
-    title: 'Far Cray 3',
+    title: 'Red Dead Redemption II',
     id: '1',
     image: 'cry.jpg',
   },

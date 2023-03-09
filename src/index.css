@@ -42,6 +42,7 @@
     position: absolute;
     padding-top: 20px;
     padding-left: 20px;
+    z-index: 9999;
 }
 
 .main-links button {
@@ -87,6 +88,26 @@
 
 
 /* !! Styling for the main content of the page */
+
+
+.game-container div {
+    bottom: 20px;
+    width: 100%;
+    /* height: auto; */
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    /* padding-bottom: 20px; */
+    border-radius: 5px 5px 10px 10px;
+    opacity: 0;
+    align-items: center;
+}
+
+.game-container:hover div {
+    /* bottom: 20px; */
+    opacity: 1;
+    transition: ease-in-out 500ms;
+
+}
 
 @media screen and (min-width: 768px) {
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import mostPlayed from '../../data/mostPlayed';
 
 const MostPlayed = () => {
@@ -8,14 +9,23 @@ const MostPlayed = () => {
         <h3 className="text-xl font-black md:text-3xl">Most played</h3>
         <div className="game-component flex flex-wrap gap-2 justify-center">
           {mostPlayed.map((game) => (
-            <div key={game.id} className="md:pb-5">
-              <img
-                src={game.image}
-                alt=""
-                className="w-game-pic md:w-36 lg:w-44 rounded-lg"
-              />
-              <h4>{game.title}</h4>
-            </div>
+            <Link to={`/game/${game.id}`} key={game.id}>
+              <div
+                key={game.id}
+                className=" game-container cursor-pointer pb-5 relative"
+              >
+                <img
+                  src={game.image}
+                  alt=""
+                  className="w-game-pic md:w-36 lg:w-44 rounded-lg"
+                />
+                <div className="absolute">
+                  <h4 className="text-white font-medium pl-2 pt-2 pb-2 ">
+                    {game.title}
+                  </h4>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
