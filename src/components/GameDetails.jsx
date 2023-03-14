@@ -4,13 +4,19 @@ import { useParams } from 'react-router';
 
 const GameDetails = () => {
   const { id } = useParams();
-  console.log(mostPlayed);
+  // console.log(mostPlayed);
 
-  return mostPlayed.map((game) => (
-    <div key={game.id}>
-      <h5>{game.title}</h5>
-    </div>
-  ));
+  return (
+    <>
+      <div>
+        {mostPlayed.map((game) => (
+          <div key={game.id}>
+            <h5>{game.title}</h5>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default GameDetails;

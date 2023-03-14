@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import app from '../../auth/firebase';
@@ -6,36 +6,24 @@ import { HiOutlineMenuAlt1, HiMoon, HiSun } from 'react-icons/hi';
 import Menu from './Menu';
 import TopBanner from './TopBanner';
 import MostPlayed from './MostPlayed';
+import { useStateContext } from '../../context/StateContext';
 
 const Home = () => {
+  const { getData, games, darkMode, lightMode, openMenu, closeMenu } =
+    useStateContext();
   const [user, loading] = useAuthState(app);
   const navigate = useNavigate();
-  // console.log(user);
+
+  useEffect(() => {
+    getData();
+    console.log(games);
+  }, []);
+
   useEffect(() => {
     if (!user) {
       navigate('/');
     }
   });
-
-  const darkMode = () => {
-    const baseElement = document.documentElement;
-    baseElement.classList.toggle('dark');
-  };
-
-  const lightMode = () => {
-    const baseElement = document.documentElement;
-    baseElement.classList.remove('dark');
-  };
-
-  const openMenu = () => {
-    const menu = document.getElementById('menu-container');
-    menu.classList.toggle('active');
-  };
-
-  const closeMenu = () => {
-    const menu = document.getElementById('menu-container');
-    menu.classList.remove('active');
-  };
 
   return (
     <>
@@ -51,11 +39,11 @@ const Home = () => {
           <div className="flex items-center gap-5">
             <HiMoon
               onClick={darkMode}
-              className="flex dark:hidden hover:text-cta"
+              className="flex dark:hidden hover:text-cta cursor-pointer"
             />
             <HiSun
               onClick={lightMode}
-              className="hidden dark:flex hover:text-cta"
+              className="hidden dark:flex hover:text-cta cursor-pointer"
             />
             {user ? (
               <img
