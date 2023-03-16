@@ -26,6 +26,7 @@ export const StateContext = ({ children }) => {
     menu.classList.remove('active');
   };
 
+  // !! API Data fetching
   const urlGames = `https://api.rawg.io/api/games?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }`;
@@ -36,10 +37,12 @@ export const StateContext = ({ children }) => {
       .then((result) => {
         const response = result.data;
         setGames(response.results);
+        console.log(response.results);
       })
       .catch((err) => {
         console.log(err);
       });
+    // !! API Data fetching
   };
 
   return (
