@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../../context/StateContext';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const MostPlayed = () => {
   const { games } = useStateContext();
@@ -17,7 +18,7 @@ const MostPlayed = () => {
                   // key={game.id}
                   className=" game-container cursor-pointer pb-5 relative"
                 >
-                  <img
+                  <LazyLoadImage
                     src={game.background_image}
                     alt=""
                     className="w-game-pic h-36 md:w-36 lg:w-44 md:h-52 lg:h-60 rounded-lg  object-cover"
