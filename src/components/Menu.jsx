@@ -16,9 +16,7 @@ const Menu = ({ closeMenu }) => {
         <div className="links flex flex-col gap-8 font-medium">
           <div className="main-links w-full flex flex-col self-start items-start gap-3 pr-2">
             <button className="text-start">Home</button>
-            <button className="flex items-center gap-2">
-              Most loved <BsFire className="text-cta" />
-            </button>
+            <button className="flex items-center gap-2">Personal space</button>
           </div>
           <div className="">
             <ul className="genres-filter flex flex-col gap-3 pr-2">

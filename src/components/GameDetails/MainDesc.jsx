@@ -11,8 +11,9 @@ const MainDesc = ({ game }) => {
     <>
       <div>
         <div key={id} className="flex flex-col">
-          <h5 className="font-black text-xl md:text-3xl lg:text-4xl mb-5">{name}</h5>
+          <h5 className="font-black text-xl md:text-3xl lg:text-6xl mb-5">{name}</h5>
           <div className="flex flex-col">
+            <h4 className='font-black text-xl md:text-2xl'>About</h4>
             <p className="">
               {showDesc ? defValue : `${defValue.substring(0, 197)}...`}
               <button

@@ -28,7 +28,7 @@ const GameDetails = () => {
   return (
     <>
       {
-        <div className="flex flex-col md:pt-32 md:flex-row p-5 lg:p-32 gap-10">
+        <div className="flex flex-col md:pt-32 md:flex-row p-5 lg:p-20 xl:p-32 gap-10">
           <div className="md:w-1/2">
             <img
               src={background_image}
