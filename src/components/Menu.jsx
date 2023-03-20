@@ -1,8 +1,10 @@
 import React from 'react';
 import { CgClose } from 'react-icons/cg';
-import { BsFire } from 'react-icons/bs';
+import { useStateContext } from '../../context/StateContext';
+import { Link } from 'react-router-dom';
 
-const Menu = ({ closeMenu }) => {
+const Menu = () => {
+  const { closeMenu } = useStateContext();
   return (
     <>
       <div className="menu-component flex flex-col gap-16">
@@ -15,7 +17,9 @@ const Menu = ({ closeMenu }) => {
         </div>
         <div className="links flex flex-col gap-8 font-medium">
           <div className="main-links w-full flex flex-col self-start items-start gap-3 pr-2">
-            <button className="text-start">Home</button>
+            <Link to={'/home'} className='w-full'>
+              <button className="text-start">Home</button>
+            </Link>
             <button className="flex items-center gap-2">Personal space</button>
           </div>
           <div className="">

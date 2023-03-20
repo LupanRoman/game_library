@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import MainDesc from './MainDesc';
 import Details from './Details';
+import Layout from '../Layout/Layout';
 
 const GameDetails = () => {
   const { slug } = useParams();
@@ -27,21 +28,21 @@ const GameDetails = () => {
 
   return (
     <>
-      {
-        <div className="flex flex-col md:pt-32 md:flex-row p-5 lg:p-20 xl:p-32 gap-10">
-          <div className="md:w-1/2">
+      <Layout>
+        <div className="game-details-component flex flex-col pt-5 xl:pt-5 xl:px-24 gap-10">
+          <div className="top-container">
             <img
               src={background_image}
               alt={`cover image of the ${name}`}
               className="bg-image rounded-lg"
             />
           </div>
-          <div className="md:w-1/2 flex flex-col gap-5">
+          <div className="bottom-container flex flex-col gap-5">
             <MainDesc game={game} />
             <Details game={game} />
           </div>
         </div>
-      }
+      </Layout>
     </>
   );
 };

@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import GameDetails from './components/GameDetails/GameDetails';
 import Home from './components/Home';
 import Landing from './components/Landing';
-import mostPlayed from '../data/mostPlayed';
-import Menu from './components/Menu';
-import MostPlayed from './components/MostPlayed';
 
 const App = () => {
   return (
