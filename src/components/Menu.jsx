@@ -17,10 +17,14 @@ const Menu = () => {
         </div>
         <div className="links flex flex-col gap-8 font-medium">
           <div className="main-links w-full flex flex-col self-start items-start gap-3 pr-2">
-            <Link to={'/home'} className='w-full'>
+            <Link to={'/home'} className="w-full">
               <button className="text-start">Home</button>
             </Link>
-            <button className="flex items-center gap-2">Personal space</button>
+            <Link to={'/personal'} className="w-full">
+              <button className="flex items-center gap-2">
+                Personal space
+              </button>
+            </Link>
           </div>
           <div className="">
             <ul className="genres-filter flex flex-col gap-3 pr-2">

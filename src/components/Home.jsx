@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <>
       <Layout>
-        <div className="home-component lg:px-20 relative">
+        <div className="home-component lg:px-5 relative">
           <div className="grid-layout">
             <TopBanner />
             <MostPlayed />

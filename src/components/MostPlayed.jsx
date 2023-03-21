@@ -11,8 +11,9 @@ const MostPlayed = () => {
       <div className="flex flex-col gap-5">
         <h3 className="text-xl font-black md:text-3xl">Most played</h3>
         <div className="game-component flex flex-wrap gap-2 justify-center">
-          {games.map((game) =>
-            game.rating > 4.41 ? (
+          {games.map(
+            (game) => (
+              // game.rating > 4.41 ? (
               <Link to={`/game/${game.slug}`} key={game.id}>
                 <div
                   // key={game.id}
@@ -30,7 +31,8 @@ const MostPlayed = () => {
                   </div>
                 </div>
               </Link>
-            ) : null
+            )
+            // ) : null
           )}
         </div>
       </div>

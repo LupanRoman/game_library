@@ -3,7 +3,7 @@ import React from 'react';
 const TopBanner = () => {
   return (
     <>
-      <div>
+      <div className='pb-10'>
         {/* <img src="" alt="image of a banner" /> */}
         <h1>Hello</h1>
         <p>

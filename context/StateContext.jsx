@@ -29,7 +29,7 @@ export const StateContext = ({ children }) => {
   // !! API Data fetching
   const urlGames = `https://api.rawg.io/api/games?key=${
     import.meta.env.VITE_RAWG_API_KEY
-  }`;
+  }&metacritic=90,100`;
 
   const getData = () => {
     axios
@@ -42,8 +42,8 @@ export const StateContext = ({ children }) => {
       .catch((err) => {
         console.log(err);
       });
-    // !! API Data fetching
   };
+  // !! API Data fetching
 
   return (
     <Context.Provider

@@ -4,11 +4,14 @@ import axios from 'axios';
 import MainDesc from './MainDesc';
 import Details from './Details';
 import Layout from '../Layout/Layout';
+import AdditionalInfo from './AdditionalInfo';
 
 const GameDetails = () => {
   const { slug } = useParams();
   const [game, setGame] = useState({});
   const { name, background_image } = game;
+
+  // !! API Call
 
   const gameUrl = `https://api.rawg.io/api/games/${slug}?key=${
     import.meta.env.VITE_RAWG_API_KEY
@@ -26,6 +29,8 @@ const GameDetails = () => {
       });
   }, []);
 
+  // !! API Call
+
   return (
     <>
       <Layout>
@@ -40,6 +45,7 @@ const GameDetails = () => {
           <div className="bottom-container flex flex-col gap-5">
             <MainDesc game={game} />
             <Details game={game} />
+            <AdditionalInfo game={game} slug={slug} />
           </div>
         </div>
       </Layout>
