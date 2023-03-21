@@ -38,7 +38,7 @@
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
     width: 60vw;
-    height: 95vh;
+    /* height: 95vh; */
     position: absolute;
     padding-top: 20px;
     padding-left: 20px;
@@ -57,14 +57,14 @@
     transition: ease-in-out 500ms;
 }
 
-.genres-filter li {
+.genres-filter {
     background-color: aliceblue;
     border-radius: 5px;
     padding: 5px 0px 5px 10px;
     cursor: pointer;
 }
 
-.genres-filter li:hover {
+.genres-filter:hover {
     background-color: #ECA823;
     transition: ease-in-out 500ms;
 }

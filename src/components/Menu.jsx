@@ -2,6 +2,7 @@ import React from 'react';
 import { CgClose } from 'react-icons/cg';
 import { useStateContext } from '../../context/StateContext';
 import { Link } from 'react-router-dom';
+import GenreLink from './Menu/GenreLink';
 
 const Menu = () => {
   const { closeMenu } = useStateContext();
@@ -27,11 +28,7 @@ const Menu = () => {
             </Link>
           </div>
           <div className="">
-            <ul className="genres-filter flex flex-col gap-3 pr-2">
-              <li>Action</li>
-              <li>Adventure</li>
-              <li>Arcade</li>
-            </ul>
+              <GenreLink />
           </div>
         </div>
       </div>

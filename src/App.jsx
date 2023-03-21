@@ -4,6 +4,7 @@ import GameDetails from './components/GameDetails/GameDetails';
 import Home from './components/Home';
 import Landing from './components/Landing';
 import PersSpace from './components/PersonalSpace/PersSpace';
+import Genre from './Genre';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/game/:slug" element={<GameDetails />} />
             <Route path="/personal" element={<PersSpace />} />
+            <Route path="/genre/:id" element={<Genre />} />
           </Routes>
         </Router>
       </div>

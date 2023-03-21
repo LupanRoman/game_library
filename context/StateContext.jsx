@@ -37,7 +37,7 @@ export const StateContext = ({ children }) => {
       .then((result) => {
         const response = result.data;
         setGames(response.results);
-        console.log(response.results);
+        // console.log(response.results);
       })
       .catch((err) => {
         console.log(err);
