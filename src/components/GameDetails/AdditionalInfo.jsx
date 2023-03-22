@@ -2,28 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const AdditionalInfo = ({ game, slug }) => {
-  const { website, ratings, id } = game;
-  const [images, setImages] = useState([]);
+  const { website, ratings, id, stores } = game;
+  // const [storesLinks, setStoresLinks] = useState([]);
 
-  //   !! API Call
+  // const storesUrl = `https://api.rawg.io/api/games/${slug}/stores?key=${
+  //   import.meta.env.VITE_RAWG_API_KEY
+  // }`;
 
-  const screenShots = `https://api.rawg.io/api/games/${slug}/screenshots?key=${
-    import.meta.env.VITE_RAWG_API_KEY
-  }`;
+  // useEffect(() => {
+  //   axios
+  //     .get(storesUrl)
+  //     .then((result) => {
+  //       const response = result.data.results;
+  //       console.log(response);
+  //       response?.map((item) => setStoresLinks(item.store_id));
 
-  useEffect(() => {
-    axios
-      .get(screenShots)
-      .then((result) => {
-        const response = result.data.results;
-        setImages(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  //   !! API Call
+  //       console.log(game);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -46,10 +45,9 @@ const AdditionalInfo = ({ game, slug }) => {
               : ''}
           </div>
         </div>
-        <div className="flex flex-wrap gap-4">
-          {images
-            ? images.map((item) => <img src={item.image} width={120} />)
-            : null}
+        <div>
+          <h4>Stores</h4>
+          <div></div>
         </div>
       </div>
     </>

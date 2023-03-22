@@ -9,6 +9,7 @@ const GameCard = ({ games }) => {
         <Link to={`/game/${game.slug}`} key={game.id}>
           <div className=" game-container cursor-pointer pb-5 relative">
             <LazyLoadImage
+            threshold={100}
               src={game.background_image}
               alt=""
               className="w-game-pic h-36 md:w-36 lg:w-44 md:h-52 lg:h-60 rounded-lg  object-cover"

@@ -32,7 +32,6 @@ const GenreLink = () => {
             ))
           : ''}
       </div>
-      {console.log(genre)}
     </>
   );
 };

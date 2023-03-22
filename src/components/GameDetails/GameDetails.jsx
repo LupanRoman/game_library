@@ -5,10 +5,12 @@ import MainDesc from './MainDesc';
 import Details from './Details';
 import Layout from '../Layout/Layout';
 import AdditionalInfo from './AdditionalInfo';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const GameDetails = () => {
   const { slug } = useParams();
   const [game, setGame] = useState({});
+  const [images, setImages] = useState([]);
   const { name, background_image } = game;
 
   // !! API Call
@@ -16,6 +18,22 @@ const GameDetails = () => {
   const gameUrl = `https://api.rawg.io/api/games/${slug}?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }`;
+
+  const screenShots = `https://api.rawg.io/api/games/${slug}/screenshots?key=${
+    import.meta.env.VITE_RAWG_API_KEY
+  }`;
+
+  useEffect(() => {
+    axios
+      .get(screenShots)
+      .then((result) => {
+        const response = result.data.results;
+        setImages(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -36,11 +54,22 @@ const GameDetails = () => {
       <Layout>
         <div className="game-details-component flex flex-col pt-5 xl:pt-5 xl:px-24 gap-10">
           <div className="top-container">
-            <img
+            <LazyLoadImage
               src={background_image}
               alt={`cover image of the ${name}`}
               className="bg-image rounded-lg"
             />
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {/* {console.log(images)} */}
+            {images?.map((item) => (
+              <LazyLoadImage
+                key={item.id}
+                src={item.image}
+                width={130}
+                className="rounded-lg"
+              />
+            ))}
           </div>
           <div className="bottom-container flex flex-col gap-5">
             <MainDesc game={game} />

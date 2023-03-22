@@ -8,13 +8,12 @@ import { useStateContext } from '../../context/StateContext';
 import Layout from './Layout/Layout';
 
 const Home = () => {
-  const { getData, games } = useStateContext();
+  const { getData } = useStateContext();
   const [user, loading] = useAuthState(app);
   const navigate = useNavigate();
 
   useEffect(() => {
     getData();
-    console.log(games);
   }, []);
 
   useEffect(() => {
