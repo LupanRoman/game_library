@@ -11,6 +11,7 @@ const GameDetails = () => {
   const { slug } = useParams();
   const [game, setGame] = useState({});
   const [images, setImages] = useState([]);
+  const [index, setIndex] = useState(0);
   const { name, background_image } = game;
 
   // !! API Call
@@ -55,19 +56,20 @@ const GameDetails = () => {
         <div className="game-details-component flex flex-col pt-5 xl:pt-5 xl:px-24 gap-10">
           <div className="top-container">
             <LazyLoadImage
-              src={background_image}
+              src={images[0]?.image && images[index]?.image}
               alt={`cover image of the ${name}`}
               className="bg-image rounded-lg"
             />
           </div>
           <div className="flex flex-wrap gap-2 justify-center">
             {/* {console.log(images)} */}
-            {images?.map((item) => (
+            {images?.map((item, i) => (
               <LazyLoadImage
-                key={item.id}
+                key={i}
                 src={item.image}
-                width={130}
-                className="rounded-lg"
+                width={120}
+                className="rounded-lg cursor-pointer"
+                onMouseEnter={() => setIndex(i)}
               />
             ))}
           </div>
