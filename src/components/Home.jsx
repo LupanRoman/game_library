@@ -2,6 +2,13 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import app from '../../auth/firebase';
+import {
+  getAuth,
+  setPersistence,
+  browserSessionPersistence,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from 'firebase/auth';
 import TopBanner from './TopBanner';
 import MostPlayed from './MostPlayed';
 import { useStateContext } from '../../context/StateContext';

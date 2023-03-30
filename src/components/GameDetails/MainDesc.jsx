@@ -11,9 +11,14 @@ const MainDesc = ({ game }) => {
     <>
       <div>
         <div key={id} className="flex flex-col">
-          <h5 className="font-black text-xl md:text-3xl lg:text-6xl mb-5">
+          <h5 className="font-black text-xl md:text-3xl lg:text-6xl mb-2">
             {name}
           </h5>
+          <div className="mb-2">
+            <button className="py-1 px-2 bg-cta rounded-md font-medium text-sm">
+              Add to list
+            </button>
+          </div>
           <div className="flex flex-col">
             <h4 className="font-black md:text-2xl">About</h4>
             <p className="">

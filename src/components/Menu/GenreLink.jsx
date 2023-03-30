@@ -27,7 +27,9 @@ const GenreLink = () => {
         {genre
           ? genre.map((item) => (
               <Link to={`/genre/${item.id}`}>
-                <p className="genres-filter">{item.name}</p>
+                <p className="genres-filter dark:bg-dark-link dark:hover:bg-desaturated-cta">
+                  {item.name}
+                </p>
               </Link>
             ))
           : ''}

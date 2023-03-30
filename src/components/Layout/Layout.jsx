@@ -5,7 +5,7 @@ import TopBar from '../TopBar';
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="px-5 lg:px-10">
+      <div className="px-5 lg:px-10 dark:text-dark-text">
         <TopBar />
         <div className="flex-layout flex gap-10 md:pr-10">
           <div

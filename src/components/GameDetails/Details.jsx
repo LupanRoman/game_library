@@ -5,7 +5,7 @@ const Details = ({ game }) => {
 
   return (
     <>
-      <div className="details-component flex flex-row flex-wrap ">
+      <div className="details-component flex flex-row flex-wrap dark:text-dark-text ">
         <div className=" w-1/2 pr-2 box-border mb-4 font-light">
           <h4>Genre</h4>
           <div className="flex flex-wrap gap-1 font-medium text-sm">

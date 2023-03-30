@@ -57,6 +57,10 @@
     transition: ease-in-out 500ms;
 }
 
+.main-links.dark {
+    background-color: #3F4246;
+}
+
 .genres-filter {
     background-color: aliceblue;
     border-radius: 5px;

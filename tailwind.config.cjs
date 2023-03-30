@@ -15,10 +15,14 @@ module.exports = {
         nav: '10vh',
       },
       width: {
-        'game-pic': '125px'
+        'game-pic': '125px',
       },
       colors: {
         cta: '#ECA823',
+        'desaturated-cta': '#FFAC58',
+        'dark-bg': '#252525',
+        'dark-text': '#E2E2E2',
+        'dark-link': '#3F4246',
       },
       transitionDuration: {
         smooth: '500ms',
