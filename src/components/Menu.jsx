@@ -25,7 +25,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className="menu-component flex flex-col gap-16">
+      <div className="menu-component flex flex-col gap-16 dark:md:bg-dark-menu dark:shadow-xl">
         <div className="flex items-center justify-between">
           <h4 className="text-xl font-black md:text-2xl">Menu</h4>
           <CgClose

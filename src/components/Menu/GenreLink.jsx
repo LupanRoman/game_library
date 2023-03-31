@@ -26,7 +26,7 @@ const GenreLink = () => {
       <div className="flex flex-col gap-2 pr-2 pb-10">
         {genre
           ? genre.map((item) => (
-              <Link to={`/genre/${item.id}`}>
+              <Link to={`/genre/${item.id}`} key={item.id}>
                 <p className="genres-filter dark:bg-dark-link dark:hover:bg-desaturated-cta">
                   {item.name}
                 </p>

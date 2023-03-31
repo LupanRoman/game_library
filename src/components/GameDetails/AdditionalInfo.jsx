@@ -3,9 +3,7 @@ import axios from 'axios';
 
 const AdditionalInfo = ({ game, slug }) => {
   const { website, ratings, id, stores } = game;
-  const [storeName, setStoreName] = useState([]);
   const [storesLinks, setStoresLinks] = useState([]);
-  const [storeId, setStoreId] = useState([]);
 
   const storesUrl = `https://api.rawg.io/api/games/${slug}/stores?key=${
     import.meta.env.VITE_RAWG_API_KEY
@@ -16,29 +14,12 @@ const AdditionalInfo = ({ game, slug }) => {
       .get(storesUrl)
       .then((result) => {
         const response = result.data.results;
-        // console.log(response);
         setStoresLinks(response?.map((item) => item.url));
-        console.log(game);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  useEffect(() => {
-    setStoreName(stores?.map((item) => item.store.name));
-    setStoreId(stores?.map((store) => store.id));
-  }, []);
-
-  const storeData = storeId?.map((id, index) => {
-    return {
-      id: id,
-      storeName: storeName?.[index],
-      storesLinks: storesLinks?.[index],
-    };
-  });
-
-  console.log(storeData);
 
   return (
     <>
