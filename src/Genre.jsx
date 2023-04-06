@@ -11,6 +11,10 @@ const Genre = () => {
   const [genre, setGenre] = useState([]);
   const [pageNr, setPageNr] = useState(1);
 
+  const scroll = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   const genreFilter = `https://api.rawg.io/api/games?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }&genres=${id}&page=${pageNr}`;
@@ -65,7 +69,10 @@ const Genre = () => {
         </button>
         <button
           className="bg-cta py-2 px-4 rounded-full"
-          onClick={() => setPageNr(pageNr + 1)}
+          onClick={() => {
+            setPageNr(pageNr + 1);
+            scroll();
+          }}
         >
           {<HiChevronRight />}
         </button>

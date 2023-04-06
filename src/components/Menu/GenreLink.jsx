@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStateContext } from '../../../context/StateContext';
 
 const GenreLink = () => {
   const [genre, setGenre] = useState([]);
+
+  const { closeMenu } = useStateContext();
 
   const genreUrl = `https://api.rawg.io/api/genres?key=${
     import.meta.env.VITE_RAWG_API_KEY
@@ -26,7 +29,7 @@ const GenreLink = () => {
       <div className="flex flex-col gap-2 pr-2 pb-10">
         {genre
           ? genre.map((item) => (
-              <Link to={`/genre/${item.id}`} key={item.id}>
+              <Link onClick={closeMenu} to={`/genre/${item.id}`} key={item.id}>
                 <p className="genres-filter dark:bg-dark-link dark:hover:bg-desaturated-cta">
                   {item.name}
                 </p>

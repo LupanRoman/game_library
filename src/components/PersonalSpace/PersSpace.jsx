@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../Layout/Layout';
-import Code from '../../../public/code.svg';
+// import Code from '../../../public/code.svg';
 
 const PersSpace = () => {
   return (
@@ -18,7 +18,7 @@ const PersSpace = () => {
           </div>
           <div className="bg-gray-300 flex flex-col items-center py-10 rounded-lg gap-5 mt-20">
             <p className="font-black ">Working on this feature</p>
-            <img src={Code} alt="" width={150} />
+            <img src={'./code.svg'} alt="" width={150} />
           </div>
         </div>
       </Layout>
