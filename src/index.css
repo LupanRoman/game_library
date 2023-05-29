@@ -5,137 +5,166 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Poppins';
+  font-family: 'Poppins';
 }
 
 .landing-nav {
-    box-shadow: 0px 10px 20px #DFE0DF;
+  box-shadow: 0px 10px 20px #dfe0df;
 }
 
 @media screen and (min-width: 2000px) {
-    .root-component {
-        padding-left: 500px;
-        padding-right: 500px;
-    }
+  .root-component {
+    padding-left: 500px;
+    padding-right: 500px;
+  }
 }
 
 /* !! Styling for the menu behavior */
 
 .menu-container {
-    left: -100%;
-    transition: 200ms;
+  left: -100%;
+  transition: 200ms;
 }
 
 .menu-container.active {
-    left: 0;
-    padding-left: 20px;
-    transition: 400ms;
+  left: 0;
+  padding-left: 20px;
+  transition: 400ms;
 }
 
 .menu-component {
-    background-color: transparent;
-    backdrop-filter: blur(7px);
-    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
-    width: 60vw;
-    /* height: 95vh; */
-    position: absolute;
-    padding-top: 20px;
-    padding-left: 20px;
-    z-index: 9999;
+  background-color: transparent;
+  backdrop-filter: blur(7px);
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  width: 60vw;
+  /* height: 95vh; */
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 20px;
+  z-index: 9999;
 }
 
 .main-links button {
-    background-color: aliceblue;
-    border-radius: 5px;
-    padding: 5px 0px 5px 10px;
-    width: 100%;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 5px 0px 5px 10px;
+  width: 100%;
 }
 
 .main-links button:hover {
-    background-color: #ECA823;
-    transition: ease-in-out 500ms;
+  background-color: #eca823;
+  transition: ease-in-out 500ms;
 }
 
 .main-links.dark {
-    background-color: #3F4246;
+  background-color: #3f4246;
 }
 
 .genres-filter {
-    background-color: aliceblue;
-    border-radius: 5px;
-    padding: 5px 0px 5px 10px;
-    cursor: pointer;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 5px 0px 5px 10px;
+  cursor: pointer;
 }
 
 .genres-filter:hover {
-    background-color: #ECA823;
-    transition: ease-in-out 500ms;
+  background-color: #eca823;
+  transition: ease-in-out 500ms;
 }
 
 /* ** Screen adjustments */
 
 @media screen and (min-width: 768px) {
-    .menu-component {
-        min-width: 150px;
-        max-width: 200px;
-        background-color: white;
-        position: static;
-    }
+  .menu-component {
+    min-width: 150px;
+    max-width: 200px;
+    background-color: white;
+    position: static;
+  }
 }
 
 /* ** Screen adjustments */
-
 
 /* !! Styling for the menu behavior */
 
-
-
 /* !! Styling for the main content of the page */
 
-
 .game-container div {
-    bottom: 20px;
-    width: 100%;
-    /* height: auto; */
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    /* padding-bottom: 20px; */
-    border-radius: 5px 5px 10px 10px;
-    opacity: 0;
-    align-items: center;
+  bottom: 20px;
+  width: 100%;
+  /* height: auto; */
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  /* padding-bottom: 20px; */
+  border-radius: 5px 5px 10px 10px;
+  opacity: 0;
+  align-items: center;
 }
 
 .game-container:hover div {
-    /* bottom: 20px; */
-    opacity: 1;
-    transition: ease-in-out 500ms;
-
+  /* bottom: 20px; */
+  opacity: 1;
+  transition: ease-in-out 500ms;
 }
 
 .details-component {
-    max-width: 500px;
+  max-width: 500px;
 }
 
 @media screen and (min-width: 768px) {
 }
-
-
 
 /* !! Styling for the main content of the page */
 
 /* !! Styling for game details page */
 
 .bg-image {
-    width: 100%;
-    height: 25vh;
-    object-fit: cover;
+  width: 100%;
+  height: 25vh;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 769px) {
-    .bg-image {
-        height: 50vh;
-    }
+  .bg-image {
+    height: 50vh;
+  }
 }
 
 /* !! Styling for game details page */
+
+.modal-signUp.active {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  box-shadow: 0 0 0 9999px #000000b0;
+  z-index: 9999;
+}
+
+.sign-up-container input {
+  box-shadow: 2px 2px 10px #00000035;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-size: 15px;
+  outline: none;
+  height: 30px;
+  width: 100%;
+}
+
+.modal-logIn.active {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  box-shadow: 0 0 0 9999px #000000b0;
+  z-index: 99999;
+}
+
+.log-in-container input {
+  box-shadow: 2px 2px 10px #00000035;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-size: 15px;
+  outline: none;
+  height: 30px;
+  width: 100%;
+}

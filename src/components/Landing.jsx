@@ -1,28 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  browserSessionPersistence,
-  setPersistence,
-} from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import auth from '../../auth/firebase';
+import SignUp from './AuthModals/SignUp';
+import LogIn from './AuthModals/LogIn';
+import { useEffect } from 'react';
 
 const Landing = () => {
-  // ** Getting the data for the google auth
-  const provider = new GoogleAuthProvider();
-  // ** useNavigate is used for navigating to /home after the user is signed up
-  const navigate = useNavigate();
+  const [modalSignUp, setModalSignUp] = useState(Object);
+  const [modalLogIn, setModalLogIn] = useState(Object);
 
-  const signUp = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      if (result) {
-        navigate('/home');
-      }
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    const modalSignUp = document.getElementById('modal-signUp');
+    const modalLogIn = document.getElementById('modal-logIn');
+    setModalSignUp(modalSignUp);
+    setModalLogIn(modalLogIn);
+  }, []);
+
+  // TODO optimize how modals are opened and closed
+
+  const openSignUp = () => {
+    const mainBtn = document.getElementById('main-btn');
+    modalSignUp.classList.toggle('active');
+    if (modalLogIn.classList.contains('active')) {
+      modalLogIn.classList.toggle('active');
+    }
+    if (modalSignUp.classList.contains('active')) {
+      mainBtn.style.display = 'none';
+    } else {
+      mainBtn.style.display = 'flex';
+    }
+  };
+
+  // TODO optimize how modals are opened and closed
+
+  const openLogIn = () => {
+    const mainBtn = document.getElementById('main-btn');
+    modalLogIn.classList.toggle('active');
+    if (modalSignUp.classList.contains('active')) {
+      modalSignUp.classList.toggle('active');
+    }
+    if (modalSignUp.classList.contains('active')) {
+      mainBtn.style.display = 'none';
+    } else {
+      mainBtn.style.display = 'flex';
     }
   };
 
@@ -31,14 +50,8 @@ const Landing = () => {
       <div className="landing-component h-screen">
         <nav className="landing-nav flex justify-between h-nav items-center px-5 md:px-24">
           <h1 className="text-2xl font-black">Gamify</h1>
-          <button
-            onClick={signUp}
-            className="text-3xl hover:rotate-180 duration-smooth"
-          >
-            <FcGoogle />
-          </button>
         </nav>
-        <div className="flex flex-col gap-36 justify-center items-center text-center pt-32 ">
+        <div className="relative flex flex-col gap-36 justify-center items-center text-center pt-32 ">
           <div className="text-5xl md:text-7xl font-black">
             <div className="flex flex-col md:flex-row gap-2">
               <h1>Explore a</h1>
@@ -46,12 +59,16 @@ const Landing = () => {
             </div>
             <h1 className="text-cta pt-10">Universe.</h1>
           </div>
+          <div className="absolute top-10">
+            {<SignUp openSignUp={openSignUp} openLogIn={openLogIn} />}
+            {<LogIn openSignUp={openSignUp} openLogIn={openLogIn} />}
+          </div>
           <button
-            className="flex items-center font-medium gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
-            onClick={signUp}
+            onClick={openSignUp}
+            id="main-btn"
+            className="font-black gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
           >
-            <FcGoogle className="text-4xl" />
-            Log in with google
+            Sign up
           </button>
         </div>
       </div>
