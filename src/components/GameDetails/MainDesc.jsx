@@ -30,7 +30,7 @@ const MainDesc = ({ game }) => {
           </div>
           <div
             id="listSelector-wrapper"
-            className="listSelector-wrapper hidden"
+            className="listSelector-wrapper hidden dark:bg-dark-bg"
           >
             <ListSelector game={game} OpenListSelector={openListSelector} />
           </div>

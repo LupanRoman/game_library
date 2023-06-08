@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Context = createContext();
@@ -35,9 +35,9 @@ export const StateContext = ({ children }) => {
   };
   // !! API Data fetching
 
-  const addGameToList = () => {
-    console.log(games);
-  };
+  // const addGameToList = () => {
+  //   listOfGames.push(games);
+  // };
 
   return (
     <Context.Provider
@@ -46,7 +46,6 @@ export const StateContext = ({ children }) => {
         games,
         lightDarkMode,
         handleMenu,
-        addGameToList,
       }}
     >
       {children}

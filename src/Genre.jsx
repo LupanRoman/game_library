@@ -15,6 +15,9 @@ const Genre = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
+  // ** Here i get data for the genres 
+  // ** This is the page that displays games based on a genre
+
   const genreFilter = `https://api.rawg.io/api/games?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }&genres=${id}&page=${pageNr}`;

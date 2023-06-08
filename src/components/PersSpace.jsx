@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './Layout/Layout';
 import gameList from '../../data/gameList';
+import ListView from './PersonalSpace/ListView';
 
 const PersSpace = () => {
   return (
@@ -15,7 +16,9 @@ const PersSpace = () => {
               <h4 className=" cursor-pointer active:text-cta">{list.title}</h4>
             ))}
           </div>
-          <div id="gameList-container" className="gameList-container"></div>
+          <div id="gameList-container" className="gameList-container">
+            <ListView />
+          </div>
         </div>
       </Layout>
     </>

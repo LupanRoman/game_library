@@ -8,6 +8,8 @@ const GenreLink = () => {
 
   const { closeMenu } = useStateContext();
 
+  // ** API for getting the genre name to display in the menu 
+
   const genreUrl = `https://api.rawg.io/api/genres?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }`;

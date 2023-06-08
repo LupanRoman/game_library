@@ -3,8 +3,13 @@ import gameList from '../../../data/gameList';
 import { useStateContext } from '../../../context/StateContext';
 
 const ListSelector = ({ OpenListSelector, game }) => {
+  const listOfGames = [];
+
   const addToList = () => {
     console.log(game);
+    OpenListSelector();
+    listOfGames.push(game);
+    console.log(listOfGames);
   };
   return (
     <>
