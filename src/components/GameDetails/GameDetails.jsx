@@ -62,7 +62,6 @@ const GameDetails = () => {
             />
           </div>
           <div className="flex flex-wrap gap-2 justify-center">
-            {/* {console.log(images)} */}
             {images?.map((item, i) => (
               <LazyLoadImage
                 key={i}

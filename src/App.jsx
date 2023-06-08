@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import GameDetails from './components/GameDetails/GameDetails';
 import Home from './components/Home';
 import Landing from './components/Landing';
-import PersSpace from './components/PersonalSpace/PersSpace';
+import PersSpace from './components/PersSpace';
 import Genre from './Genre';
 
 const App = () => {

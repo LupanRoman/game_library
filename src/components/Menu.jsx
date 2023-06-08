@@ -7,7 +7,7 @@ import { TbDoorExit } from 'react-icons/tb';
 import { getAuth, signOut } from 'firebase/auth';
 
 const Menu = () => {
-  const { closeMenu } = useStateContext();
+  const { handleMenu } = useStateContext();
 
   // * Logging the user out
 
@@ -29,14 +29,16 @@ const Menu = () => {
         <div className="flex items-center justify-between">
           <h4 className="text-xl font-black md:text-2xl">Menu</h4>
           <CgClose
-            onClick={closeMenu}
+            onClick={handleMenu}
             className="cursor-pointer pr-2 text-3xl md:hidden"
           />
         </div>
         <div className="links flex flex-col gap-8 font-medium">
           <div className="main-links w-full flex flex-col self-start items-start gap-3 pr-2">
             <Link to={'/home'} className="w-full">
-              <button className="text-start dark:bg-dark-link dark:hover:bg-desaturated-cta">Home</button>
+              <button className="text-start dark:bg-dark-link dark:hover:bg-desaturated-cta">
+                Home
+              </button>
             </Link>
             <Link to={'/personal'} className="w-full">
               <button className="flex items-center gap-2 dark:bg-dark-link dark:hover:bg-desaturated-cta">

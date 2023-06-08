@@ -168,3 +168,12 @@
   height: 30px;
   width: 100%;
 }
+
+.listSelector-wrapper.active {
+  display: flex;
+  position: absolute;
+  background: white;
+  box-shadow: 0 0 0 9999px #000000b0;
+  padding: 30px 20px 30px 20px;
+  border-radius: 10px;
+}

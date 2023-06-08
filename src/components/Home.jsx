@@ -8,7 +8,7 @@ import Layout from './Layout/Layout';
 
 const Home = () => {
   const { getData } = useStateContext();
-  const [user, loading] = useAuthState(app);
+  const [user] = useAuthState(app);
   const navigate = useNavigate();
 
   useEffect(() => {

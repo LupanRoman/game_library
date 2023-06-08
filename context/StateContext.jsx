@@ -6,27 +6,17 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
   const [games, setGames] = useState([]);
 
-  const darkMode = () => {
+  const lightDarkMode = () => {
     const baseElement = document.documentElement;
     baseElement.classList.toggle('dark');
   };
 
-  const lightMode = () => {
-    const baseElement = document.documentElement;
-    baseElement.classList.remove('dark');
-  };
-
-  const openMenu = () => {
+  const handleMenu = () => {
     const menu = document.getElementById('menu-container');
     menu.classList.toggle('active');
   };
 
-  const closeMenu = () => {
-    const menu = document.getElementById('menu-container');
-    menu.classList.remove('active');
-  };
-
-  // !! API Data fetching
+  // !! API Data fetching for most played games
   const urlGames = `https://api.rawg.io/api/games?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }&metacritic=90,100`;
@@ -45,15 +35,18 @@ export const StateContext = ({ children }) => {
   };
   // !! API Data fetching
 
+  const addGameToList = () => {
+    console.log(games);
+  };
+
   return (
     <Context.Provider
       value={{
         getData,
         games,
-        darkMode,
-        lightMode,
-        openMenu,
-        closeMenu,
+        lightDarkMode,
+        handleMenu,
+        addGameToList,
       }}
     >
       {children}

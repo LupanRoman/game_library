@@ -5,26 +5,26 @@ import { useStateContext } from '../../context/StateContext';
 import { HiOutlineMenuAlt1, HiMoon, HiSun } from 'react-icons/hi';
 
 const TopBar = () => {
-  const [user, loading] = useAuthState(app);
-  const { darkMode, lightMode, openMenu } = useStateContext();
+  const [user] = useAuthState(app);
+  const { lightDarkMode, handleMenu } = useStateContext();
 
   return (
     <>
       <div className="nav-bar h-nav flex justify-between items-center md:px-4">
         <div className="flex gap-5 items-center text-xl">
           <HiOutlineMenuAlt1
-            onClick={openMenu}
+            onClick={handleMenu}
             className="cursor-pointer hover:text-cta md:hidden"
           />
           <h1 className="font-black md:text-3xl">Gamify</h1>
         </div>
         <div className="flex items-center gap-5">
           <HiMoon
-            onClick={darkMode}
+            onClick={lightDarkMode}
             className="flex dark:hidden hover:text-cta cursor-pointer"
           />
           <HiSun
-            onClick={lightMode}
+            onClick={lightDarkMode}
             className="hidden dark:flex hover:text-cta cursor-pointer"
           />
           {user ? (
