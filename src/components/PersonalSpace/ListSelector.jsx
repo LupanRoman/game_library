@@ -1,14 +1,15 @@
 import React from 'react';
 import gameList from '../../../data/gameList';
 import { useStateContext } from '../../../context/StateContext';
+import { useState } from 'react';
 
 const ListSelector = ({ OpenListSelector, game }) => {
-  const listOfGames = [];
+  const [listOfGames, setListOfGames] = useState([]);
 
   const addToList = () => {
     console.log(game);
     OpenListSelector();
-    listOfGames.push(game);
+    setListOfGames([...listOfGames, game]);
     console.log(listOfGames);
   };
   return (

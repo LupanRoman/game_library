@@ -11,9 +11,9 @@ const Home = () => {
   const [user] = useAuthState(app);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   useEffect(() => {
     if (!user) {

@@ -4,7 +4,7 @@ import axios from 'axios';
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
-  const [games, setGames] = useState([]);
+  // const [games, setGames] = useState([]);
 
   const lightDarkMode = () => {
     const baseElement = document.documentElement;
@@ -17,22 +17,22 @@ export const StateContext = ({ children }) => {
   };
 
   // !! API Data fetching for most played games
-  const urlGames = `https://api.rawg.io/api/games?key=${
-    import.meta.env.VITE_RAWG_API_KEY
-  }&metacritic=90,100`;
+  // const urlGames = `https://api.rawg.io/api/games?key=${
+  //   import.meta.env.VITE_RAWG_API_KEY
+  // }&metacritic=90,100`;
 
-  const getData = () => {
-    axios
-      .get(urlGames)
-      .then((result) => {
-        const response = result.data;
-        setGames(response.results);
-        // console.log(response.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const getData = () => {
+  //   axios
+  //     .get(urlGames)
+  //     .then((result) => {
+  //       const response = result.data;
+  //       setGames(response.results);
+  //       // console.log(response.results);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   // !! API Data fetching
 
   // const addGameToList = () => {
@@ -42,8 +42,8 @@ export const StateContext = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        getData,
-        games,
+        // getData,
+        // games,
         lightDarkMode,
         handleMenu,
       }}
