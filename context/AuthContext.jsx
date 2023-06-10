@@ -21,7 +21,6 @@ export const AuthContext = ({ children }) => {
       });
   };
 
-
   const logInUser = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {

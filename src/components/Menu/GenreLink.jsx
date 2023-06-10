@@ -1,29 +1,20 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../../../context/StateContext';
+import { GenresAPI } from '../../../apis/GenresAPI';
 
 const GenreLink = () => {
   const [genre, setGenre] = useState([]);
 
   const { closeMenu } = useStateContext();
 
-  // ** API for getting the genre name to display in the menu 
-
-  const genreUrl = `https://api.rawg.io/api/genres?key=${
-    import.meta.env.VITE_RAWG_API_KEY
-  }`;
+  // ** Call to get the genre name
 
   useEffect(() => {
-    axios
-      .get(genreUrl)
-      .then((result) => {
-        const response = result.data.results;
-        setGenre(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    GenresAPI.getGenres().then((result) => {
+      const response = result.data.results;
+      setGenre(response);
+    });
   }, []);
 
   return (

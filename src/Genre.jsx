@@ -1,9 +1,10 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import GameCard from './components/GameCard';
 import Layout from './components/Layout/Layout';
 import { HiChevronRight, HiChevronLeft } from 'react-icons/hi';
+import { GenresAPI } from '../apis/GenresAPI';
+import { GamesAPI } from '../apis/GamesAPI';
 
 const Genre = () => {
   const { id } = useParams();
@@ -15,39 +16,21 @@ const Genre = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
-  // ** Here i get data for the genres 
+  // ** Here i get data for the genres
   // ** This is the page that displays games based on a genre
 
-  const genreFilter = `https://api.rawg.io/api/games?key=${
-    import.meta.env.VITE_RAWG_API_KEY
-  }&genres=${id}&page=${pageNr}`;
-
-  const genreDetails = `https://api.rawg.io/api/genres/${id}?key=${
-    import.meta.env.VITE_RAWG_API_KEY
-  }`;
-
   useEffect(() => {
-    axios
-      .get(genreDetails)
-      .then((result) => {
-        const response = result.data;
-        setGenre(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    GenresAPI.getGenreDetails(id).then((result) => {
+      const response = result.data;
+      setGenre(response);
+    });
   }, [id]);
 
   useEffect(() => {
-    axios
-      .get(genreFilter)
-      .then((result) => {
-        const response = result.data.results;
-        setGames(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    GamesAPI.getGamesGenre(id, pageNr).then((result) => {
+      const response = result.data.results;
+      setGames(response);
+    });
   }, [id, pageNr]);
 
   // ** Resets the page number state when changing genres
