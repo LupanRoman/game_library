@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from './Layout/Layout';
 import gameList from '../../data/gameList';
 import ListView from './PersonalSpace/ListView';
 
 const PersSpace = () => {
+  const [listId, setListId] = useState(1);
   return (
     <>
       <Layout>
@@ -13,11 +14,18 @@ const PersSpace = () => {
           </h1>
           <div className="flex gap-4 text-lg flex-wrap font-medium dark:text-dark-text">
             {gameList.map((list) => (
-              <h4 className=" cursor-pointer active:text-cta">{list.title}</h4>
+              <h4
+                onClick={() => {
+                  setListId(list.id);
+                }}
+                className=" cursor-pointer active:text-cta"
+              >
+                {list.title}
+              </h4>
             ))}
           </div>
           <div id="gameList-container" className="gameList-container">
-            <ListView />
+            <ListView ListId={listId} />
           </div>
         </div>
       </Layout>
