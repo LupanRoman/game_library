@@ -3,6 +3,8 @@ import ListSelector from '../PersonalSpace/ListSelector';
 
 const MainDesc = ({ game }) => {
   const [showDesc, setShowDesc] = useState(false);
+  const [gameId, setGameId] = useState([]);
+  const [foundId, setFoundId] = useState();
   const { description_raw, name, id } = game;
 
   // * Using defValue to default to empty string for the substring method
@@ -13,6 +15,27 @@ const MainDesc = ({ game }) => {
     listSelectorWrapper.classList.toggle('active');
   };
 
+  useEffect(() => {
+    const fromLocal = JSON.parse(localStorage.getItem('games') || '[]');
+    setListOfGames(fromLocal);
+  }, [foundId]);
+
+  const [listOfGames, setListOfGames] = useState([]);
+
+  // !! Make an array with the games id's
+
+  useEffect(() => {
+    const idsFromLocal = listOfGames?.map((item) => item.id);
+    setGameId(idsFromLocal);
+    console.log(idsFromLocal);
+  }, [listOfGames, game]);
+
+  useEffect(() => {
+    const found = gameId.find((element) => element == id);
+    setFoundId(found);
+    console.log(found);
+  }, [gameId]);
+
   return (
     <>
       <div>
@@ -21,18 +44,31 @@ const MainDesc = ({ game }) => {
             {name}
           </h5>
           <div className="mb-2">
-            <button
-              className="py-1 px-2 bg-cta rounded-md font-medium text-sm"
-              onClick={openListSelector}
-            >
-              Add to list
-            </button>
+            {foundId ? (
+              <button
+                className="py-1 px-2 bg-cta rounded-md font-medium text-sm"
+                onClick={openListSelector}
+              >
+                Change list
+              </button>
+            ) : (
+              <button
+                className="py-1 px-2 bg-cta rounded-md font-medium text-sm"
+                onClick={openListSelector}
+              >
+                Add to list
+              </button>
+            )}
           </div>
           <div
             id="listSelector-wrapper"
             className="listSelector-wrapper hidden dark:bg-dark-bg"
           >
-            <ListSelector game={game} OpenListSelector={openListSelector} />
+            <ListSelector
+              GameId={gameId}
+              game={game}
+              OpenListSelector={openListSelector}
+            />
           </div>
           <div className="flex flex-col">
             <h4 className="font-black md:text-2xl">About</h4>

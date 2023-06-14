@@ -11,4 +11,3 @@ Topics learned/solidified in this project:
         -- Tailwind
         -- Vite and its packaging technique
         -- Firebase for logging in the user and signing out
-        

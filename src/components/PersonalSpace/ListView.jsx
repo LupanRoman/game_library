@@ -17,6 +17,7 @@ const ListView = ({ ListId }) => {
       <div className="listView-component">
         {listOfGames.map((game) => {
           // ** Returns the needed games list
+          // !! Here I read the game list from local storage
           if (game.listType == ListId) {
             return (
               <Link to={`/game/${game.game.slug}`} key={game.game.id}>

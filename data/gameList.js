@@ -1,5 +1,9 @@
 const gameList = [
   {
+    title: 'All',
+    id: 0,
+  },
+  {
     title: 'Completed',
     id: 1,
   },
