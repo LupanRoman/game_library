@@ -15,6 +15,9 @@ export const AuthContext = ({ children }) => {
         const user = userCredential.user;
         sendEmailVerification(user);
         console.log(user);
+        if (user.emailVerified == false) {
+          alert('An email with email verification link was sent to your email');
+        }
       })
       .catch((error) => {
         console.log(error);

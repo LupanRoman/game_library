@@ -90,6 +90,7 @@ const ListSelector = ({ OpenListSelector, game, GameId }) => {
                       { listType: list.id, id: gameObject.id, game: game },
                     ]);
                     OpenListSelector();
+                    alert(`The game was added to list ${list.title}`);
                     console.log(listOfGames);
                   }}
                 >

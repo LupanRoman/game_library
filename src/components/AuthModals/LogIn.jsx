@@ -16,6 +16,7 @@ const LogIn = ({ openSignUp, openLogIn }) => {
       navigate('/home');
     }
   }, [user]);
+
   return (
     <>
       <div
@@ -57,7 +58,9 @@ const LogIn = ({ openSignUp, openLogIn }) => {
         </div>
         <button
           className="font-black bg-cta px-2 py-4 rounded-lg hover:scale-110 duration-smooth"
-          onClick={() => logInUser(email, password)}
+          onClick={() => {
+            logInUser(email, password);
+          }}
         >
           Log in
         </button>

@@ -59,7 +59,10 @@ const SignUp = ({ openSignUp, openLogIn }) => {
         </div>
         <button
           className="font-black bg-cta px-2 py-4 rounded-lg hover:scale-110 duration-smooth"
-          onClick={() => registerUser(email, password)}
+          onClick={() => {
+            registerUser(email, password);
+            
+          }}
         >
           Sign up
         </button>

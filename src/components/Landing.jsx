@@ -56,19 +56,24 @@ const Landing = () => {
               <h1>Explore a</h1>
               <h1>whole new</h1>
             </div>
-            <h1 className="text-cta pt-10">Universe.</h1>
+            <h1 className="text-cta pt-4">Universe.</h1>
           </div>
           <div className="absolute top-10">
             {<SignUp openSignUp={openSignUp} openLogIn={openLogIn} />}
             {<LogIn openSignUp={openSignUp} openLogIn={openLogIn} />}
           </div>
-          <button
-            onClick={openSignUp}
-            id="main-btn"
-            className="font-black gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
-          >
-            Sign up
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <button
+              onClick={openLogIn}
+              id="main-btn"
+              className="font-black gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
+            >
+              Log In
+            </button>
+            <button onClick={openSignUp}>
+              New here ? <span className='text-cta font-black'>Sign up</span>
+            </button>
+          </div>
         </div>
       </div>
     </>
