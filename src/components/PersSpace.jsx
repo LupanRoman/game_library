@@ -4,7 +4,8 @@ import gameList from '../../data/gameList';
 import ListView from './PersonalSpace/ListView';
 
 const PersSpace = () => {
-  const [listId, setListId] = useState(1);
+  const [listId, setListId] = useState(0);
+  const [listName, setListName] = useState();
   return (
     <>
       <Layout>
@@ -17,15 +18,17 @@ const PersSpace = () => {
               <h4
                 onClick={() => {
                   setListId(list.id);
+                  setListName(list.title);
                 }}
-                className=" cursor-pointer active:text-cta"
+                className=" cursor-pointer active:text-cta active:font-black "
               >
                 {list.title}
               </h4>
             ))}
           </div>
+          <h4 className="font-black text-cta text-3xl pt-5 ">{listName}</h4>
           <div id="gameList-container" className="gameList-container">
-            <ListView ListId={listId} />
+            <ListView ListId={listId} ListName={listName} />
           </div>
         </div>
       </Layout>

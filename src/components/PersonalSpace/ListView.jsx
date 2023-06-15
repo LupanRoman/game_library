@@ -14,15 +14,15 @@ const ListView = ({ ListId }) => {
 
   return (
     <>
-      <div className="listView-component">
+      <div className="listView-component flex flex-wrap justify-between mt-5">
         {listOfGames.map((game) => {
           // ** Returns the needed games list
           // !! Here I read the game list from local storage
+
           if (game.listType == ListId) {
             return (
               <Link to={`/game/${game.game.slug}`} key={game.game.id}>
                 <div className=" game-container cursor-pointer pb-5 relative">
-                  {/* <p>{game.listType}</p> */}
                   <LazyLoadImage
                     threshold={100}
                     src={game.game.background_image}
