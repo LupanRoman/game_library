@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthContext } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import app from '../../../auth/firebase';
 
 const LogIn = ({ openSignUp, openLogIn }) => {
-  const { logInUser } = useAuthContext();
+  const { logInUser, currentUser } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user] = useAuthState(app);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user && user.emailVerified == true) {
-      navigate('/home');
-    }
-  }, [user]);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -58,8 +50,14 @@ const LogIn = ({ openSignUp, openLogIn }) => {
         </div>
         <button
           className="font-black bg-cta px-2 py-4 rounded-lg hover:scale-110 duration-smooth"
-          onClick={() => {
+          onClick={async () => {
             logInUser(email, password);
+            setTimeout(() => {
+              console.log(currentUser);
+              if (currentUser) {
+                navigate('/home');
+              }
+            }, 2000);
           }}
         >
           Log in
