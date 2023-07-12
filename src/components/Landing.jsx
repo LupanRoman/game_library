@@ -66,7 +66,7 @@ const Landing = () => {
             <button
               onClick={openLogIn}
               id="main-btn"
-              className="font-black gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
+              className="font-black gap-5 bg-cta px-7 py-5 rounded-lg"
             >
               Log In
             </button>

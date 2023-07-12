@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useStateContext } from '../../context/StateContext';
 import { HiOutlineMenuAlt1, HiMoon, HiSun } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
@@ -28,14 +27,6 @@ const TopBar = () => {
             onClick={lightDarkMode}
             className="hidden dark:flex hover:text-cta cursor-pointer"
           />
-          {/* {user ? (
-            <img
-              src={userPhoto}
-              width={40}
-              alt="profile image"
-              className="rounded-full"
-            />
-          ) : null} */}
         </div>
       </div>
     </>

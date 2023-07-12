@@ -15,7 +15,7 @@ module.exports = {
         nav: '10vh',
       },
       width: {
-        'game-pic': '125px',
+        'game-pic': '155px',
       },
       colors: {
         cta: '#ECA823',

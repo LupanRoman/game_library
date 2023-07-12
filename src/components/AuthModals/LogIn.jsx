@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuthContext } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const LogIn = ({ openSignUp, openLogIn }) => {
   const { logInUser, currentUser } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const auth = getAuth()
 
   const navigate = useNavigate();
-
+  
   return (
     <>
       <div
         id="modal-logIn"
-        className="modal-logIn top-20 hidden bg-white rounded-lg px-10 py-14"
+        className="modal-logIn top-20 hidden bg-white rounded-lg px-10 md:px-20 py-14 justify-center"
       >
         <div className="log-in-container relative flex flex-col items-start  ">
           <button
@@ -52,12 +54,13 @@ const LogIn = ({ openSignUp, openLogIn }) => {
           className="font-black bg-cta px-2 py-4 rounded-lg hover:scale-110 duration-smooth"
           onClick={async () => {
             logInUser(email, password);
-            setTimeout(() => {
-              console.log(currentUser);
-              if (currentUser) {
-                navigate('/home');
+            onAuthStateChanged(auth, (user) => {
+              if(user) {
+                navigate('/home')
+              } else {
+                return 
               }
-            }, 2000);
+            })
           }}
         >
           Log in

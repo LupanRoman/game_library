@@ -17,7 +17,7 @@ const MostPlayed = () => {
     <>
       <div className="flex flex-col gap-5">
         <h3 className="text-xl font-black md:text-3xl ">Most played</h3>
-        <div className="game-component flex flex-wrap gap-2 justify-between">
+        <div className="game-component flex flex-wrap gap-2 justify-evenly">
           <GameCard games={mostPlayedGames} />
         </div>
       </div>

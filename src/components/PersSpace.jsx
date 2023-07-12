@@ -5,7 +5,7 @@ import ListView from './PersonalSpace/ListView';
 
 const PersSpace = () => {
   const [listId, setListId] = useState(0);
-  const [listName, setListName] = useState('All');
+  const [listName, setListName] = useState('Uncategorized');
   return (
     <>
       <Layout>

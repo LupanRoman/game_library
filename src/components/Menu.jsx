@@ -1,10 +1,10 @@
 import React from 'react';
 import { CgClose } from 'react-icons/cg';
 import { useStateContext } from '../../context/StateContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GenreLink from './Menu/GenreLink';
 import { TbDoorExit } from 'react-icons/tb';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 const Menu = () => {
   const { handleMenu } = useStateContext();
@@ -12,15 +12,15 @@ const Menu = () => {
   // * Logging the user out
 
   const auth = getAuth();
+  const navigate = useNavigate()
 
   const getOut = () => {
-    signOut(auth)
-      .then(() => {
+    onAuthStateChanged(auth, (user) => {
+      signOut(auth).then(() => {
         console.log('out');
-      })
-      .catch((err) => {
-        console.log(err);
+        navigate('/')
       });
+    });
   };
 
   return (

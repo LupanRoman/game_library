@@ -12,7 +12,7 @@ const GameCard = ({ games }) => {
               threshold={100}
               src={game.background_image}
               alt="game thumbnail image"
-              className="w-game-pic h-36 md:w-36 lg:w-44 md:h-52 lg:h-60 rounded-lg  object-cover"
+              className="w-game-pic h-52 md:w-36 lg:w-44 md:h-52 lg:h-60 rounded-lg  object-cover"
             />
             <div className="absolute">
               <h4 className="text-white font-medium pl-2 pt-2 pb-2 ">
