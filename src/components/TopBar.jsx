@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useStateContext } from '../../context/StateContext';
 import { HiOutlineMenuAlt1, HiMoon, HiSun } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   const { lightDarkMode, handleMenu } = useStateContext();
@@ -14,7 +15,9 @@ const TopBar = () => {
             onClick={handleMenu}
             className="cursor-pointer hover:text-cta md:hidden"
           />
-          <h1 className="font-black md:text-3xl">Gamify</h1>
+          <Link to={'/home'} className="font-black md:text-3xl">
+            Gamify
+          </Link>
         </div>
         <div className="flex items-center gap-5">
           <HiMoon

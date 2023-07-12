@@ -5,11 +5,11 @@ import ListView from './PersonalSpace/ListView';
 
 const PersSpace = () => {
   const [listId, setListId] = useState(0);
-  const [listName, setListName] = useState();
+  const [listName, setListName] = useState('All');
   return (
     <>
       <Layout>
-        <div className="flex flex-col w-full relative">
+        <div className="flex flex-col relative">
           <h1 className="font-black text-xl md:text-4xl pb-5 dark:text-dark-text">
             Personal Space
           </h1>

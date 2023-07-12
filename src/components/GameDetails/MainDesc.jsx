@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListSelector from '../PersonalSpace/ListSelector';
+import { IoIosArrowDown } from 'react-icons/io';
 
 const MainDesc = ({ game }) => {
   const [showDesc, setShowDesc] = useState(false);
@@ -39,30 +40,31 @@ const MainDesc = ({ game }) => {
   return (
     <>
       <div>
-        <div key={id} className="relative flex flex-col">
+        <div key={id} className=" flex flex-col">
           <h5 className="font-black text-xl md:text-3xl lg:text-6xl mb-2">
             {name}
           </h5>
-          <div className="mb-2">
+          <div className="mb-2 relative">
             {foundId ? (
-              <button
-                className="py-1 px-2 bg-cta rounded-md font-medium text-sm"
+              <div
+                className="py-2 px-3 bg-cta rounded-md font-medium text-sm flex items-center justify-between cursor-pointer max-w-xs"
                 onClick={openListSelector}
               >
-                Change list
-              </button>
+                <button>Change list</button>
+                <IoIosArrowDown />
+              </div>
             ) : (
-              <button
-                className="py-1 px-2 bg-cta rounded-md font-medium text-sm"
+              <div
+                className="py-2 px-3 bg-cta rounded-md font-medium text-sm flex items-center justify-between cursor-pointer max-w-xs"
                 onClick={openListSelector}
               >
-                Add to list
-              </button>
+                <button>Add to list</button>
+                <IoIosArrowDown />
+              </div>
             )}
-          </div>
-          <div
+            <div
             id="listSelector-wrapper"
-            className="listSelector-wrapper hidden dark:bg-dark-bg"
+            className="listSelector-wrapper hidden dark:bg-dark-bg top-12"
           >
             <ListSelector
               GameId={gameId}
@@ -70,6 +72,8 @@ const MainDesc = ({ game }) => {
               OpenListSelector={openListSelector}
             />
           </div>
+          </div>
+          
           <div className="flex flex-col">
             <h4 className="font-black md:text-2xl">About</h4>
             <p className="">

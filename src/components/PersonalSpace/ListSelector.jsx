@@ -45,23 +45,26 @@ const ListSelector = ({ OpenListSelector, game, GameId }) => {
 
   return (
     <>
-      <div className="listSelector-component flex flex-col gap-2">
+      <div className="listSelector-component w-full">
         {foundId ? (
-          <div>
+          <div className="flex flex-col gap-2">
             {gameList.map((list) => {
               return (
-                <h4
-                  id="button"
-                  className="text-lg cursor-pointer active:text-cta hover:text-cta"
+                <div
+                  className="hover:bg-cta-opacity px-2 py-2 rounded-lg"
                   onClick={() => {
                     listOfGames[index].listType = list.id;
                     localStorage.setItem('games', JSON.stringify(listOfGames));
                     OpenListSelector();
+                    alert(`The game was changed to list ${list.title}`);
                     console.log(listOfGames);
                   }}
                 >
-                  {list.title}
-                </h4>
+                  <h4 id="button" className="text-lg cursor-pointer">
+                    {list.title}
+                  </h4>
+                  <p className="text-xs font-regular text-gray-400">{list.desc}</p>
+                </div>
               );
             })}
             <button
@@ -73,16 +76,15 @@ const ListSelector = ({ OpenListSelector, game, GameId }) => {
                 console.log(listOfGames);
               }}
             >
-              Delete
+              Delete from list
             </button>
           </div>
         ) : (
-          <div>
+          <div className="flex flex-col gap-2">
             {gameList.map((list) => {
               return (
-                <h4
-                  id="button"
-                  className="text-lg cursor-pointer active:text-cta hover:text-cta"
+                <div
+                  className="hover:bg-cta-opacity px-2 py-2 rounded-lg"
                   onClick={() => {
                     // !! Create the object to sent to local storage
                     setListOfGames([
@@ -94,8 +96,13 @@ const ListSelector = ({ OpenListSelector, game, GameId }) => {
                     console.log(listOfGames);
                   }}
                 >
-                  {list.title}
-                </h4>
+                  <h4 id="button" className="text-lg cursor-pointer">
+                    {list.title}
+                  </h4>
+                  <p className="text-xs font-regular text-gray-400">
+                    {list.desc}
+                  </p>
+                </div>
               );
             })}
           </div>

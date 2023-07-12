@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           >
             <Menu />
           </div>
-          <main>{children}</main>
+          <main className='w-full'>{children}</main>
         </div>
       </div>
     </>

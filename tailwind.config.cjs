@@ -23,7 +23,8 @@ module.exports = {
         'dark-bg': '#252525',
         'dark-text': '#E2E2E2',
         'dark-link': '#3F4246',
-        'dark-menu': '#1D1D1D'
+        'dark-menu': '#1D1D1D',
+        'cta-opacity': '#ECA82380'
       },
       transitionDuration: {
         smooth: '500ms',

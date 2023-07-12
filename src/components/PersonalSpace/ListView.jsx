@@ -14,7 +14,7 @@ const ListView = ({ ListId }) => {
 
   return (
     <>
-      <div className="listView-component flex flex-wrap justify-between mt-5">
+      <div className="listView-component flex flex-wrap gap-5 mt-5">
         {listOfGames.map((game) => {
           // ** Returns the needed games list
           // !! Here I read the game list from local storage
@@ -38,6 +38,19 @@ const ListView = ({ ListId }) => {
               </Link>
             );
           }
+          //  else {
+          //   return (
+          //     <div className="text-center flex flex-col gap-5 w-full items-center ">
+          //       <h4 className="text-xl font-medium">No games found</h4>
+          //       <Link
+          //         to={'/home'}
+          //         className="font-black gap-5 bg-cta px-7 py-5 rounded-lg hover:scale-110 duration-smooth"
+          //       >
+          //         Add games
+          //       </Link>
+          //     </div>
+          //   );
+          // }
         })}
       </div>
     </>
