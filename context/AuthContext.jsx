@@ -22,7 +22,20 @@ export const AuthContext = ({ children }) => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            return alert('Email already in use');
+            break;
+          case 'auth/invalid-credential':
+            return alert('Invalid credentials');
+            break;
+          case 'auth/invalid-email':
+            return alert('Invalid credentials');
+            break;
+          case 'auth/invalid-password':
+            return alert('Invalid credentials');
+            break;
+        }
       });
   };
 
@@ -37,7 +50,20 @@ export const AuthContext = ({ children }) => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        switch (error.code) {
+          case 'auth/invalid-credential':
+            return alert('Invalid credentials');
+            break;
+          case 'auth/invalid-email':
+            return alert('Invalid credentials');
+            break;
+          case 'auth/invalid-password':
+            return alert('Invalid credentials');
+            break;
+          case 'auth/user-not-found':
+            return alert('User not found');
+            break;
+        }
       });
   };
 

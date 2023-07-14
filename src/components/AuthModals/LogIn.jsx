@@ -55,7 +55,7 @@ const LogIn = ({ openSignUp, openLogIn }) => {
           onClick={async () => {
             logInUser(email, password);
             onAuthStateChanged(auth, (user) => {
-              if(user) {
+              if(user && user.emailVerified == true) {
                 navigate('/home')
               } else {
                 return 

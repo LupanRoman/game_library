@@ -2,17 +2,28 @@ import React, { useState } from 'react';
 import SignUp from './AuthModals/SignUp';
 import LogIn from './AuthModals/LogIn';
 import { useEffect } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Landing = () => {
   const [modalSignUp, setModalSignUp] = useState(Object);
   const [modalLogIn, setModalLogIn] = useState(Object);
-
+  const auth = getAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     const modalSignUp = document.getElementById('modal-signUp');
     const modalLogIn = document.getElementById('modal-logIn');
     setModalSignUp(modalSignUp);
     setModalLogIn(modalLogIn);
   }, []);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user && user.emailVerified == true) {
+      navigate('/home');
+    } else {
+      return;
+    }
+  });
 
   // TODO optimize how modals are opened and closed
 
@@ -71,7 +82,7 @@ const Landing = () => {
               Log In
             </button>
             <button onClick={openSignUp}>
-              New here ? <span className='text-cta font-black'>Sign up</span>
+              New here ? <span className="text-cta font-black">Sign up</span>
             </button>
           </div>
         </div>
